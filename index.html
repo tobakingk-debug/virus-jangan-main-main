@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ERROR SYSTEM ❤️</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: #080808;
+  color: #ff3333;
+  font-family: monospace;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+  transition: .5s;
+}
+
+.container {
+  padding: 25px;
+  width: 90%;
+  max-width: 500px;
+}
+
+.error {
+  font-size: 65px;
+  animation: blink .5s infinite;
+}
+
+@keyframes blink {
+  50% { opacity: .2; }
+}
+
+h1 {
+  font-size: 28px;
+  text-shadow: 0 0 15px red;
+}
+
+p {
+  line-height: 1.8;
+  color: #ddd;
+}
+
+button {
+  background: #ff2525;
+  border: none;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  box-shadow: 0 0 20px red;
+}
+
+#success {
+  display: none;
+  color: white;
+}
+
+#success h1 {
+  color: #ff7acb;
+  text-shadow: 0 0 20px #ff36b8;
+}
+
+.heart {
+  position: fixed;
+  top: -30px;
+  animation: fall 4s linear forwards;
+  pointer-events: none;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container" id="error">
+
+  <div class="error">⚠️</div>
+
+  <h1> SYSTEM ERROR 404 </h1>
+
+  <p>
+    WARNING! WARNING!<br>
+    Sistem mendeteksi sesuatu yang tidak biasa...
+  </p>
+
+  <p>
+    ERROR: TOO MUCH LOVE DETECTED ❤️<br>
+    Nama: Salsabila Atiqah Tryani<br>
+    Status: Terlalu spesial!
+  </p>
+
+  <button onclick="repair()">
+    PERBAIKI SEKARANG
+  </button>
+
+</div>
+
+<div class="container" id="success">
+
+  <div style="font-size:80px">💗</div>
+
+  <h1>HAHAHA KENA PRANK! 😂</h1>
+
+  <p>
+    Tenang, sistemnya baik-baik saja!<br>
+    Yang error cuma hati Abdillah...
+  </p>
+
+  <h2 style="color:#ff8bd9">
+    ❤️ I LOVE YOU SALSABILA ❤️
+  </h2>
+
+  <p>
+    Salsabila Atiqah Tryani,<br>
+    jangan marah yaaa! Ini cuma kejutan kecil.
+    Semoga kamu selalu tersenyum. 🥰
+  </p>
+
+  <button onclick="again()">
+    ULANGI PRANK 😂
+  </button>
+
+</div>
+
+<script>
+function repair() {
+  document.body.style.background = "#240b20";
+  document.body.style.color = "white";
+
+  document.getElementById("error").style.display = "none";
+  document.getElementById("success").style.display = "block";
+
+  for(let i = 0; i < 60; i++) {
+    createHeart();
+  }
+}
+
+function createHeart() {
+  const heart = document.createElement("div");
+
+  heart.className = "heart";
+  heart.innerHTML = ["❤️","💗","💕","💖","💘"][
+    Math.floor(Math.random() * 5)
+  ];
+
+  heart.style.left = Math.random() * 100 + "vw";
+  heart.style.fontSize = (15 + Math.random() * 30) + "px";
+  heart.style.animationDuration = (2 + Math.random() * 3) + "s";
+
+  document.body.appendChild(heart);
+
+  setTimeout(() => heart.remove(), 5000);
+}
+
+function again() {
+  document.getElementById("success").style.display = "none";
+  document.getElementById("error").style.display = "block";
+  document.body.style.background = "#080808";
+  document.body.style.color = "#ff3333";
+}
+</script>
+
+</body>
+</html>
